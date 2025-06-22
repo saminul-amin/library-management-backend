@@ -47,7 +47,6 @@ const bookSchema = new mongoose_1.Schema({
 }, {
     timestamps: true,
 });
-// Instance method to update availability
 bookSchema.methods.updateAvailability = function () {
     this.available = this.copies > 0;
 };

@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const book_model_1 = require("../models/book.model");
 const bookRoutes = express_1.default.Router();
-// POST /api/books
 bookRoutes.post("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const book = yield book_model_1.Book.create(req.body);
@@ -29,7 +28,6 @@ bookRoutes.post("/", (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         next(err);
     }
 }));
-// GET /api/books
 bookRoutes.get("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { filter, sortBy = "createdAt", sort = "asc", limit = 10, } = req.query;
@@ -46,7 +44,6 @@ bookRoutes.get("/", (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         next(err);
     }
 }));
-// GET /api/books/:bookId
 bookRoutes.get("/:bookId", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const book = yield book_model_1.Book.findById(req.params.bookId);
@@ -60,7 +57,6 @@ bookRoutes.get("/:bookId", (req, res, next) => __awaiter(void 0, void 0, void 0,
         next(err);
     }
 }));
-// PUT /api/books/:bookId
 bookRoutes.put("/:bookId", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const book = yield book_model_1.Book.findByIdAndUpdate(req.params.bookId, req.body, {
@@ -76,7 +72,6 @@ bookRoutes.put("/:bookId", (req, res, next) => __awaiter(void 0, void 0, void 0,
         next(err);
     }
 }));
-// DELETE /api/books/:bookId
 bookRoutes.delete("/:bookId", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield book_model_1.Book.findByIdAndDelete(req.params.bookId);

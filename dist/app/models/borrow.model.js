@@ -30,7 +30,6 @@ const borrowSchema = new mongoose_1.Schema({
 }, {
     timestamps: true,
 });
-// post-save middleware to update book stock
 borrowSchema.post("save", function () {
     return __awaiter(this, void 0, void 0, function* () {
         const borrowed = this;
