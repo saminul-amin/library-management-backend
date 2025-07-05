@@ -4,7 +4,19 @@ import bookRoutes from "./app/controllers/book.controller";
 import borrowRoutes from "./app/controllers/borrow.controller";
 import errorHandler from "./app/middlewares/errorHandler";
 
+import cors from "cors";
+
 const app: Application = express();
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://library-management-client-kappa.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
